@@ -107,7 +107,7 @@ Description: [description détaillée]
         )
         
         # Sauvegarder l'analyse
-        if save_analysis(message.content[0].text)
+        if save_analysis(message.content[0].text):
             print("Analyse terminée avec succès")
             return True
             
