@@ -32,7 +32,19 @@ $env:ANTHROPIC_API_KEY="votre-clé-api"
 export ANTHROPIC_API_KEY="votre-clé-api"
 ```
 
-2. Vérifier que le fichier `config.yaml` est correctement configuré avec vos paramètres.
+2. Configurer l'application dans `config.yaml` :
+```yaml
+paths:
+  data_dir: "data"  # Répertoire principal des données
+
+browser:
+  url: "https://www.google.fr"
+  wait_time: 2
+```
+
+Le système crée automatiquement les sous-répertoires suivants :
+- `data/screenshots` : pour les captures d'écran
+- `data/analyses` : pour les analyses d'interface
 
 ## Utilisation
 
@@ -49,4 +61,5 @@ python main.py
 - `agent_ui_automation.py` : Automatisation de l'interface utilisateur
 - `screen_utils.py` : Utilitaires de capture d'écran
 - `browser_utils.py` : Utilitaires de navigation web
-- `paths.py` : Gestion des chemins de fichiers 
+- `config.yaml` : Configuration de l'application
+- `utils/config_loader.py` : Utilitaire de chargement de la configuration avec fonctions pour accéder aux chemins

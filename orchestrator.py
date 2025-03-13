@@ -5,11 +5,12 @@ from agent_ui_automation import process_ui_action
 from agent_analyzer import analyze_screenshot
 from browser_utils import open_google
 from screen_utils import take_screenshot
-from paths import INTERFACE_DESCRIPTION_FILE
+from utils.config_loader import ConfigLoader
 
 class Orchestrator:
     def __init__(self):
-        self.interface_description_path = INTERFACE_DESCRIPTION_FILE
+        config = ConfigLoader()
+        self.interface_description_path = config.get_ui_description_path()
 
     def open_browser(self):
         """Ouvre le navigateur sur Google"""

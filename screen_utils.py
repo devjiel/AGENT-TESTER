@@ -4,9 +4,12 @@ Module pour la capture d'ecran
 from PIL import ImageGrab
 from datetime import datetime
 import os
-from paths import SCREENSHOTS_DIR
+from utils.config_loader import ConfigLoader
 
-def take_screenshot(directory=SCREENSHOTS_DIR):
+# Initialisation de la configuration
+config = ConfigLoader()
+
+def take_screenshot(directory=None):
     """
     Prend une capture d'ecran et la sauvegarde dans le dossier specifie
     
@@ -17,6 +20,10 @@ def take_screenshot(directory=SCREENSHOTS_DIR):
         str: Le chemin du fichier de la capture d'ecran
     """
     try:
+        # Utiliser le répertoire configuré si non spécifié
+        if directory is None:
+            directory = config.get_screenshots_dir()
+            
         # Creer le dossier s'il n'existe pas
         if not os.path.exists(directory):
             os.makedirs(directory)

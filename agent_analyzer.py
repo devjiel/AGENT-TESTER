@@ -5,16 +5,21 @@ from anthropic import Anthropic
 import os
 from PIL import Image
 import base64
-from paths import SCREENSHOTS_DIR, ANALYSES_DIR
+from utils.config_loader import ConfigLoader
 
 # Création du client Anthropic
 client = Anthropic()
+config = ConfigLoader()
 
-def read_latest_screenshot(directory=SCREENSHOTS_DIR):
+def read_latest_screenshot(directory=None):
     """
     Lit la capture d'écran la plus récente du dossier
     """
     try:
+        # Utiliser le répertoire configuré si non spécifié
+        if directory is None:
+            directory = config.get_screenshots_dir()
+            
         # Obtenir tous les fichiers du dossier
         files = [os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.png')]
         if not files:
@@ -27,16 +32,20 @@ def read_latest_screenshot(directory=SCREENSHOTS_DIR):
         print(f"Erreur lors de la lecture de la capture d'écran : {str(e)}")
         return None
 
-def save_analysis(analysis, directory=ANALYSES_DIR):
+def save_analysis(analysis, directory=None):
     """
     Sauvegarde l'analyse dans le fichier interface_description.txt
     """
     try:
+        # Utiliser le répertoire configuré si non spécifié
+        if directory is None:
+            directory = config.get_analyses_dir()
+            
         # Créer le dossier s'il n'existe pas
         if not os.path.exists(directory):
             os.makedirs(directory)
             
-        filepath = os.path.join(directory, "interface_description.txt")
+        filepath = config.get_ui_description_path()
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(analysis)
             

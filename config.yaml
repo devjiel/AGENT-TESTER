@@ -1,11 +1,6 @@
-{
-  "browser": {
-    "url": "https://www.google.fr",
-    "wait_time": 2
-  },
-  "paths": {
-    "screenshots": "data/screenshots",
-    "analyses": "data/analyses",
-    "interface_description": "data/analyses/interface_description.txt"
-  }
-}
+paths:
+  data_dir: "data"
+
+browser:
+  url: "https://www.google.fr"
+  wait_time: 2
