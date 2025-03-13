@@ -44,4 +44,4 @@ def take_screenshot(directory=None):
         
     except Exception as e:
         print(f"Erreur lors de la capture d'ecran : {str(e)}")
-        return None 
+        return None

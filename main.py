@@ -1,7 +1,7 @@
 """
 Point d'entrée principal de l'application
 """
-from orchestrator import Orchestrator
+from core.orchestrator import Orchestrator
 
 def main():
     # Initialiser l'orchestrateur

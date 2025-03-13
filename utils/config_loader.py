@@ -71,5 +71,5 @@ class ConfigLoader:
         return os.path.join(self.get_data_dir(), 'analyses')
         
     def get_ui_description_path(self) -> str:
-        """Get the interface description file path"""
-        return os.path.join(self.get_analyses_dir(), 'ui_description.txt') 
+        """Get the ui description file path"""
+        return os.path.join(self.get_analyses_dir(), 'ui_description.txt')
