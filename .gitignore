@@ -1,0 +1,32 @@
+# Fichiers sensibles
+do_not_commit.txt
+.env
+*.key
+config.local.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# Données générées
+data/
+*.log
+*.png
+*.jpg
+*.jpeg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db 
